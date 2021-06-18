@@ -941,7 +941,7 @@ class IAM(Ingestor):
 
             try:
                 login_profile = self.client.get_login_profile(
-                    UserName=user.get("Name"))["LoginProfile"]
+                    UserName=str(user.get("Name")))["LoginProfile"]
                 del login_profile["UserName"]
                 user.set("LoginProfile", login_profile)
                 self.console.info(
