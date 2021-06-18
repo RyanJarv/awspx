@@ -960,7 +960,7 @@ class IAM(Ingestor):
 
             try:
                 access_keys = self.client.list_access_keys(
-                    UserName=user.get("Name"))[
+                    UserName=str(user.get("Name")))[
                     "AccessKeyMetadata"]
 
                 for i in range(len(access_keys)):
