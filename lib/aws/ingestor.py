@@ -994,7 +994,7 @@ class IAM(Ingestor):
         ):
 
             for mfa_device in self.client.list_mfa_devices(
-                UserName=user.get("Name")
+                UserName=str(user.get("Name"))
             )["MFADevices"]:
 
                 label = RESOURCES.label(mfa_device["SerialNumber"])
